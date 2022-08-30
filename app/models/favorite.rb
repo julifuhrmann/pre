@@ -1,6 +1,7 @@
 class Favorite < ApplicationRecord
-  belongs_to :user
-  belongs_to :party
+  belongs_to :follower, class_name: "User"
+  belongs_to :followed, class_name: "User"
+
   validates :user, uniqueness: { scope: :party,
-                                message: "You already favorite this person!" }
+                                  message: "You already favorited this person!" }
 end
