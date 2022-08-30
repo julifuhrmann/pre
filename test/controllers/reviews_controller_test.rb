@@ -1,23 +1,23 @@
 require "test_helper"
 
-class ReviesControllerTest < ActionDispatch::IntegrationTest
+class ReviewsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get revies_index_url
+    get reviews_index_url
     assert_response :success
   end
 
   test "should get show" do
-    get revies_show_url
+    get reviews_show_url
     assert_response :success
   end
 
   test "should get new" do
-    get revies_new_url
+    get reviews_new_url
     assert_response :success
   end
 
   test "should get create" do
-    get revies_create_url
+    get reviews_create_url
     assert_response :success
   end
 end

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'revies/index'
-  get 'revies/show'
-  get 'revies/new'
-  get 'revies/create'
+  get 'reviews/index'
+  get 'reviews/show'
+  get 'reviews/new'
+  get 'reviews/create'
   get 'chatrooms/index'
   get 'chatrooms/show'
   get 'chatrooms/new'
