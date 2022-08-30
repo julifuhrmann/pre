@@ -1,22 +1,24 @@
 class RequestsController < ApplicationController
   def index
-  end
-
-  def show
-  end
-
-  def new
+    @requests = Request.all
   end
 
   def create
-  end
+    @request = Request.new(party_params)
+    @request.save
 
-  def edit
-  end
-
-  def update
+    redirect_to request_path(@request)
   end
 
   def destroy
+    @request.destroy
+
+    redirect_to requests_path, status: :see_other
+  end
+
+  private
+
+  def request_params
+    params.require(:request).permit(:message)
   end
 end
