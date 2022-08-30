@@ -12,11 +12,8 @@ Party.destroy_all
 
 puts "Create 10 users..."
 
-puts "finished!"
-
 10.times do
   user = User.new(
-    name: Faker::Name.name,
     email: Faker::Internet.email,
     password: Faker::Internet.password
   )
@@ -24,18 +21,18 @@ puts "finished!"
   puts "Creating #{User.count} - #{user.email}"
 end
 
+puts "finished!"
+
 puts "Create 10 parties..."
-i = 0
 10.times do
   party = Party.new(
-    name: Faker::Hipster.sentence.name,
-    date: Faker::Date.date(rand(Date >= Date.today)),
-    status: Faker::Number(rand(0..1)),
+    name: Faker::Hipster.sentence,
+    date: Faker::Date.forward(days: 14),
+    status: rand(0..1),
     description: Faker::Hipster.paragraph(sentence_count: 5),
     user: User.all.sample,
-    address: Faker::Address.address
+    address: Faker::Address
   )
-  i += 1
   party.save!
   puts "Creating #{party.id} - #{party.name}"
 end
