@@ -1,2 +1,22 @@
-<h1>Parties#show</h1>
-<p>Find me in app/views/parties/show.html.erb</p>
+<h1>
+  <%= @party.name %>
+</h1>
+
+<p><%= @party.date  %></p>
+<p><%= @party.description  %></p>
+
+
+
+
+<%# check if current user made request, forward to delete if requested %>
+<% if current_user %>
+  <%= link_to "CAN'T ATTEND?", request_path(@party), class: "btn btn-primary" %>
+<% else %>
+  <%= link_to "JOIN IN!", request_path(@party), class: "btn btn-primary" %>
+<% end %>
+
+<%# TODO implement address to map if user join request accepted  %>
+
+<%# if current_user.request.status == 1  %>
+  <p><%= @party.address  %></p>
+<%# end %>
