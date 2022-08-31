@@ -19,6 +19,6 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:message)
+    params.require(:request).permit(:status)
   end
 end
