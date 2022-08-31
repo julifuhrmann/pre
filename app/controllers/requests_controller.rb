@@ -1,13 +1,20 @@
 class RequestsController < ApplicationController
+  before_action :set_party, only: [:create, :destroy]
+
   def index
     @requests = Request.all
   end
 
   def create
-    @request = Request.new(party_params)
-    @request.save
-
-    redirect_to request_path(@request)
+    @request = Request.new(request_params)
+    @request.user = current_user
+    @request.party = @party
+    if @request.save
+      redirect_to parties_path(@party)
+    else
+      render :new, status: :unprocessable_entity
+    end
+    raise
   end
 
   def destroy
@@ -17,6 +24,10 @@ class RequestsController < ApplicationController
   end
 
   private
+
+  def set_party
+    @party = Party.find(params[:party_id])
+  end
 
   def request_params
     params.require(:request).permit(:status)
