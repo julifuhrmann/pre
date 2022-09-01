@@ -7,7 +7,6 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :items
   has_many :messages
-  has_one_attached :avatar
 
 
   devise :database_authenticatable, :registerable,
