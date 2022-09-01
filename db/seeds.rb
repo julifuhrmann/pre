@@ -15,6 +15,7 @@ User.destroy_all
 puts "Create 10 users..."
 
 user = User.new(
+  username: "matias1",
   email: 'hello@gmail.com',
   password: '123456'
 )
@@ -23,6 +24,7 @@ puts "Creating #{User.count} - #{user.email}"
 
 10.times do
   user = User.new(
+    username: Faker::Name.name,
     email: Faker::Internet.email,
     password: Faker::Internet.password
   )
