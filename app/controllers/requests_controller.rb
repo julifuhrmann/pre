@@ -1,8 +1,18 @@
 class RequestsController < ApplicationController
+  before_action :set_request, only: [:update, :accept]
   before_action :set_party, only: [:create, :destroy]
 
   def index
     @requests = Request.all
+  end
+
+  def update
+    if params[:commit] == "accepted"
+      @request.accepted!
+    else
+      @request.declined!
+    end
+    redirect_to requests_path
   end
 
   def create
@@ -21,6 +31,14 @@ class RequestsController < ApplicationController
     end
   end
 
+  def accept
+    @request.status = 1
+  end
+
+  def decline
+    @request.status = 2
+  end
+
   def destroy
     @request.destroy
 
@@ -29,11 +47,15 @@ class RequestsController < ApplicationController
 
   private
 
+  def set_request
+    @request = Request.find(params[:id])
+  end
+
   def set_party
     @party = Party.find(params[:party_id])
   end
 
   def request_params
-    params.require(:request).permit(:status)
+    params.require(:request).permit(:status, :button_action, :accepted, :declined)
   end
 end

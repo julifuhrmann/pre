@@ -1,2 +1,30 @@
-<h1>Requests#index</h1>
-<p>Find me in app/views/requests/index.html.erb</p>
+<h1>Pending Requests</h1>
+<h2>Best Party in Berlin</h2>
+  <div class="cards">
+    <% @requests.each do |request| %>
+    <div class="card mb-2">
+      <%= link_to request_path(request) %>
+        <div class="card-picture">
+          <%# /TODO: if params['button_action'] == 'accept'
+                    else
+                    end
+                    implement this in the controller - then delete this %>
+          <%# end %>
+
+        </div>
+          <div class="card-description">
+            <h2><%= request.party %></h2>
+          </div>
+          <% if request.status == 'pending' %>
+            <%= simple_form_for (request) do |f| %>
+              <%= f.button :submit,  'accepted' %>
+            <% end %>
+            <%= simple_form_for request do |f| %>
+              <%= f.button :submit,  'declined' %>
+            <% end %>
+          <% else %>
+            <h4><%= request.status %></h4>
+          <% end %>
+        </div>
+    <% end %>
+  </div>
