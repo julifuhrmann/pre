@@ -17,6 +17,11 @@
 
 <%# TODO implement address to map if user join request accepted  %>
 
+  <div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['pk.eyJ1IjoianVsaWZ1aHJtYW5uIiwiYSI6ImNsN2l5MHUxczBzdGIzbnNhdjdmNzNwdXIifQ.YK5etEFNQsf-spqP-3DGuQ'] %>"></div>
+
 <%# if current_user.request.status == 1  %>
   <p><%= @party.address  %></p>
 <%# end %>

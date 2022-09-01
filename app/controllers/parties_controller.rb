@@ -4,6 +4,13 @@ class PartiesController < ApplicationController
 
   def index
     @parties = Party.all
+
+    @parties = @parties.geocoded.map do |party|
+      {
+        lat: party.latitude,
+        lng: party.longitude
+      }
+    end
   end
 
   def show
