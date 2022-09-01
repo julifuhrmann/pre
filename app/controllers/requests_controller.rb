@@ -6,15 +6,19 @@ class RequestsController < ApplicationController
   end
 
   def create
-    @request = Request.new(request_params)
+    @request = Request.new
+    if @party.status == 1
+      @request.status == 1
+    else
+      @request.status = 0
+    end
     @request.user = current_user
     @request.party = @party
     if @request.save
-      redirect_to parties_path(@party)
+      redirect_to party_path(@party)
     else
-      render :new, status: :unprocessable_entity
+      render new, status: :unprocessable_entity
     end
-    raise
   end
 
   def destroy
