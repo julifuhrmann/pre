@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:update, :accept]
-
+  before_action :set_party, only: [:create, :destroy]
 
   def index
     @requests = Request.all
@@ -16,10 +16,19 @@ class RequestsController < ApplicationController
   end
 
   def create
-    @request = Request.new(party_params)
-    @request.save
-
-    redirect_to request_path(@request)
+    @request = Request.new
+    if @party.status == 1
+      @request.status == 1
+    else
+      @request.status = 0
+    end
+    @request.user = current_user
+    @request.party = @party
+    if @request.save
+      redirect_to party_path(@party)
+    else
+      render new, status: :unprocessable_entity
+    end
   end
 
   def accept
@@ -40,6 +49,10 @@ class RequestsController < ApplicationController
 
   def set_request
     @request = Request.find(params[:id])
+  end
+
+  def set_party
+    @party = Party.find(params[:party_id])
   end
 
   def request_params

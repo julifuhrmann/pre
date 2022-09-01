@@ -9,4 +9,9 @@ class Party < ApplicationRecord
   validates :date, presence: true, comparison: { greater_than_or_equal_to: Date.today }
   validates :address, presence: true
   validates :status, presence: true
+
+  enum status: {
+    restrict: 0,
+    open: 1
+  }
 end
