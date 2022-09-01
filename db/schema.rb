@@ -10,9 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_30_150650) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_01_103303) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.string "service_name", null: false
+    t.bigint "byte_size", null: false
+    t.string "checksum"
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.bigint "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
 
   create_table "chatrooms", force: :cascade do |t|
     t.bigint "sender_id"
@@ -21,15 +49,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_150650) do
     t.datetime "updated_at", null: false
     t.index ["receiver_id"], name: "index_chatrooms_on_receiver_id"
     t.index ["sender_id"], name: "index_chatrooms_on_sender_id"
-  end
-
-  create_table "favorites", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "party_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["party_id"], name: "index_favorites_on_party_id"
-    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -62,16 +81,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_150650) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_parties_on_user_id"
-  end
-
-  create_table "reguests", force: :cascade do |t|
-    t.integer "status"
-    t.bigint "party_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["party_id"], name: "index_reguests_on_party_id"
-    t.index ["user_id"], name: "index_reguests_on_user_id"
   end
 
   create_table "requests", force: :cascade do |t|
@@ -107,17 +116,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_150650) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "chatrooms", "users", column: "receiver_id"
   add_foreign_key "chatrooms", "users", column: "sender_id"
-  add_foreign_key "favorites", "parties"
-  add_foreign_key "favorites", "users"
   add_foreign_key "items", "parties"
   add_foreign_key "items", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "parties", "users"
-  add_foreign_key "reguests", "parties"
-  add_foreign_key "reguests", "users"
   add_foreign_key "requests", "parties"
   add_foreign_key "requests", "users"
   add_foreign_key "reviews", "parties"

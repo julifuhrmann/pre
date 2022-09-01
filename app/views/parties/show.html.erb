@@ -5,20 +5,20 @@
 <p><%= @party.date  %></p>
 <p><%= @party.description  %></p>
 
+<%# simpleform for the request  %>
+<%# if current_user.requests.exists? %>
+  <%#= link_to "JOIN IN!", party_request_path(@party),
+    data: {turbo_method: :delete },
+    class: "btn btn-primary" %>
+  <%= simple_form_for([@party, @request]) do |f| %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
 
-
-
-<%# check if current user made request, forward to delete if requested %>
-<% if current_user %>
-  <%= link_to "CAN'T ATTEND?", request_path(@party), class: "btn btn-primary" %>
-<% else %>
-  <%= link_to "JOIN IN!", request_path(@party), class: "btn btn-primary" %>
-<% end %>
 
 <%# TODO implement address to map if user join request accepted  %>
 
 <%# if current_user.request.status == 1  %>
-  <p><%= @party.address  %></p>
+  <p><%#= @party.address  %></p>
 <%# end %>
 
 

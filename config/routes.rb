@@ -6,9 +6,16 @@ Rails.application.routes.draw do
   root to: "pages#home"
   devise_for :users
   resources :parties do
+<<<<<<< HEAD
     resources :reviews, only: :create
   end
   resources :requests
+=======
+    resources :requests, only: [:create, :destroy]
+  end
+
+  resources :reviews
+>>>>>>> 1baa9c6c0442f103ff389a51655b61b83422f287
   resources :favorites
   resources :chatrooms
 end
