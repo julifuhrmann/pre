@@ -1,0 +1,8 @@
+<%= simple_form_for([party, review],
+  data: {insert_review_target: "form",
+  action: "submit->insert-review#send"}
+  ) do |f| %>
+    <%= f.input :comment %>
+    <%= f.input :rating %>
+    <%= f.button :submit %>
+<% end %>

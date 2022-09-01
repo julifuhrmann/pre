@@ -24,3 +24,17 @@
 <%# if current_user.request.status == 1  %>
   <p><%#= @party.address  %></p>
 <%# end %>
+
+
+
+<%# TODO implement form if current_user assisted the party %>
+<div data-controller="insert-review">
+  <div data-insert-review-target="items">
+    <%= render partial: "reviews/form", locals: {party: @party, review: @review} %>
+  <%= link_to "Back to all parties", parties_path %>
+</div>
+<%# end %>
+
+<p><% @party.reviews.each do |review| %>
+  <%= review.comment %>
+  <% end %> </p>
