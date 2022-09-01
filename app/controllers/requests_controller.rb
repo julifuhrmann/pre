@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :set_request, only: [:update, :accept]
+  before_action :set_request, only: [:update, :accept, :destroy]
   before_action :set_party, only: [:create, :destroy]
 
   def index
@@ -17,11 +17,7 @@ class RequestsController < ApplicationController
 
   def create
     @request = Request.new
-    if @party.status == 1
-      @request.status == 1
-    else
-      @request.status = 0
-    end
+    set_request_status
     @request.user = current_user
     @request.party = @party
     if @request.save
@@ -41,8 +37,7 @@ class RequestsController < ApplicationController
 
   def destroy
     @request.destroy
-
-    redirect_to requests_path, status: :see_other
+    redirect_to party_path(@party), status: :see_other
   end
 
   private
@@ -57,5 +52,13 @@ class RequestsController < ApplicationController
 
   def request_params
     params.require(:request).permit(:status, :button_action, :accepted, :declined)
+  end
+
+  def set_request_status
+    if @party.status == 1
+      @request.status == 1
+    else
+      @request.status = 0
+    end
   end
 end
