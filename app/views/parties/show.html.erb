@@ -5,13 +5,17 @@
 <p><%= @party.date  %></p>
 <p><%= @party.description  %></p>
 
-<%# simpleform for the request  %>
-<%# if current_user.requests.exists? %>
-  <%#= link_to "JOIN IN!", party_request_path(@party),
-    data: {turbo_method: :delete },
-    class: "btn btn-primary" %>
-  <%= simple_form_for([@party, @request]) do |f| %>
-    <%= f.button :submit, class: "btn btn-primary" %>
+  <%# simpleform for the join request. If a request exists show cancel button  %>
+  <% if @party.requests.where(user: current_user).exists? %>
+    <%= link_to "Cancel Request!",
+        party_request_path(@party, @request),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+        class: "btn btn-danger" %>
+  <% else %>
+    <%= simple_form_for([@party, @request]) do |f| %>
+    <%= f.button :submit, "JOIN IN!",
+                          class: "btn btn-primary" %>
+    <% end %>
   <% end %>
 
 
