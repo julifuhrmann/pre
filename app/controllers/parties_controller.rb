@@ -7,11 +7,8 @@ class PartiesController < ApplicationController
   end
 
   def show
-<<<<<<< HEAD
     @review = Review.new
-=======
     @request = Request.new
->>>>>>> 1baa9c6c0442f103ff389a51655b61b83422f287
   end
 
   def new
