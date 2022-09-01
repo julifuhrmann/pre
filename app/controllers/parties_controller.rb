@@ -7,11 +7,19 @@ class PartiesController < ApplicationController
   end
 
   def show
+    @review = Review.new
+    @request = Request.new
+    if @party.requests.where(user: current_user).exists?
+      @request = @party.requests.find_by(user: current_user)
+    else
+      @request = Request.new
+    end
   end
 
   def new
     @party = Party.new
   end
+
 
   def create
     @party = Party.new(party_params)

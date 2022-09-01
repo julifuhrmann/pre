@@ -6,14 +6,25 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+
 puts "reset db..."
-User.destroy_all
+Request.destroy_all
 Party.destroy_all
+User.destroy_all
 
 puts "Create 10 users..."
 
+user = User.new(
+  username: "matias1",
+  email: 'hello@gmail.com',
+  password: '123456'
+)
+user.save!
+puts "Creating #{User.count} - #{user.email}"
+
 10.times do
   user = User.new(
+    username: Faker::Name.name,
     email: Faker::Internet.email,
     password: Faker::Internet.password
   )
@@ -36,5 +47,16 @@ puts "Create 10 parties..."
   party.save!
   puts "Creating #{party.id} - #{party.name}"
 end
+
+20.times do
+  request = Request.new(
+    user: User.all.sample,
+    party: Party.all.sample,
+    status: rand(0..2)
+  )
+  request.save!
+  puts "Creating #{request.id}"
+end
+puts "create test user test@pre pass: 123456"
 
 puts "Finished!"

@@ -12,10 +12,23 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    @party = Party.find(params[:party_id])
+    @user = @party.user
     @review = Review.new(review_params)
-    @review.save
+    @review.party = @party
 
-    redirect_to review_path(@review)
+    @review.user = @user
+    @review.save
+    respond_to do |format|
+      if @review.save
+        format.html { redirect_to party_path @party }
+        format.json
+      else
+        format.html { render "parties/show", status: :unprocessable_entity }
+        format.json
+      end
+    end
+    # redirect_to party_path @party
   end
 
   private
