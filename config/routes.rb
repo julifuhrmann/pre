@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   # root "articles#index"
   root to: "pages#home"
   devise_for :users
-  resources :parties
+  resources :parties do
+    resources :reviews, only: :create
+  end
   resources :requests
-  resources :reviews
   resources :favorites
   resources :chatrooms
 end

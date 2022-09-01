@@ -7,11 +7,13 @@ class PartiesController < ApplicationController
   end
 
   def show
+    @review = Review.new
   end
 
   def new
     @party = Party.new
   end
+
 
   def create
     @party = Party.new(party_params)
