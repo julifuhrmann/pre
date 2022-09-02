@@ -1,7 +1,7 @@
 <h1>
   <%= @party.name %>
 </h1>
-
+<%= cl_image_tag @party.photo.key, height: 300, width: 400, crop: :fill %>
 <p><%= @party.date  %></p>
 <p><%= @party.description  %></p>
 
