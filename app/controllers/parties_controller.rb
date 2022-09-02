@@ -20,10 +20,16 @@ class PartiesController < ApplicationController
     @party = Party.new
   end
 
-
   def create
-    @party = Party.new(party_params)
-    @party.save
+    @party = Party.new(
+      status: party_params[:status].to_i,
+      name: party_params[:name],
+      date: Date.parse("#{party_params['date(3i)']}/#{party_params['date(2i)']}/#{party_params['date(1i)']}"),
+      description: party_params[:description],
+      address: party_params[:address]
+    )
+    @party.user = current_user
+    @party.save!
 
     redirect_to party_path(@party)
   end

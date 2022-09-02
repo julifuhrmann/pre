@@ -9,6 +9,7 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <%= link_to "+Party", new_party_path, class: "btn btn-success btn-sm mx-3" %>
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
