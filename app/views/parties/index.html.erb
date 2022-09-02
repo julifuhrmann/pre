@@ -1,17 +1,16 @@
 <h1>HAPPENING IN YOUR AREA</h1>
-
   <div class="cards">
     <% @parties.each do |party| %>
     <div class="card mb-2">
       <%= link_to party_path(party) do %>
         <div class="card-picture">
-          <%# /TODO: party photo attachment - remove this line %>
-          <%# if party.photo.attached? %>
-            <%# party.photo.key %>
-          <%# end %>
+          <% if party.photo.attached? %>
+            <%= cl_image_tag party.photo.key, height: 300, width: 358, crop: :fill %>
+          <% end %>
         </div>
           <div class="card-description">
             <h2><%= party.name %></h2>
+            <p><%= party.user.username %></p>
             <p><%= party.description %></p>
           </div>
         </div>
