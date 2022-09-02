@@ -51,15 +51,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_150443) do
     t.index ["sender_id"], name: "index_chatrooms_on_sender_id"
   end
 
-  create_table "favorites", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "party_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["party_id"], name: "index_favorites_on_party_id"
-    t.index ["user_id"], name: "index_favorites_on_user_id"
-  end
-
   create_table "items", force: :cascade do |t|
     t.string "item"
     t.bigint "party_id", null: false
@@ -89,17 +80,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_150443) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_parties_on_user_id"
-  end
-
-  create_table "reguests", force: :cascade do |t|
-    t.integer "status"
-    t.bigint "party_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["party_id"], name: "index_reguests_on_party_id"
-    t.index ["user_id"], name: "index_reguests_on_user_id"
   end
 
   create_table "requests", force: :cascade do |t|
@@ -141,15 +124,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_150443) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "chatrooms", "users", column: "receiver_id"
   add_foreign_key "chatrooms", "users", column: "sender_id"
-  add_foreign_key "favorites", "parties"
-  add_foreign_key "favorites", "users"
   add_foreign_key "items", "parties"
   add_foreign_key "items", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "parties", "users"
-  add_foreign_key "reguests", "parties"
-  add_foreign_key "reguests", "users"
   add_foreign_key "requests", "parties"
   add_foreign_key "requests", "users"
   add_foreign_key "reviews", "parties"
