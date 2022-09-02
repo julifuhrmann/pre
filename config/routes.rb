@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   devise_for :users
   resources :parties do
     resources :reviews, only: :create
-  end
-  resources :requests
     resources :requests, only: [:create, :destroy]
   end
   resources :reviews
