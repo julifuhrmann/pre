@@ -5,12 +5,17 @@ Rails.application.routes.draw do
   # root "articles#index"
   root to: "pages#home"
   devise_for :users
+  resources :users, only: :show do
+    resources :chatrooms, only: [:create, :index] do
+      resources :messages, only: [:create]
+    end
+  end
+  resources :chatrooms, only: :show
   resources :parties do
     resources :reviews, only: :create
     resources :requests, only: [:create, :destroy]
   end
+
   resources :reviews
   resources :favorites
-  resources :chatrooms
-  resources :users, only: :show
 end

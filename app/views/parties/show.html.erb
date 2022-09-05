@@ -18,7 +18,9 @@
     <% end %>
   <% end %>
 
-
+  <%# BUTTON TO MESSAGE HOST %>
+    <%= link_to @party.user.username, user_chatrooms_path(@party.user),
+      data: { turbo_method: :post } %>
 <%# TODO implement address to map if user join request accepted  %>
 
 <%# if current_user.request.status == 1  %>
@@ -35,6 +37,8 @@
 </div>
 <%# end %>
 
-<p><% @party.reviews.each do |review| %>
-  <%= review.comment %>
-  <% end %> </p>
+<p>
+  <% @party.reviews.each do |review| %>
+    <%= review.comment %>
+  <% end %>
+</p>
