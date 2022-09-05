@@ -1,10 +1,13 @@
-<h1>JOIN THE PACK</h1>
+<div class="banner">
+  <div>
+    <%= image_tag "pre.png", class: "cup-text" %>
+  </div>
 
-<div class="row col-6">
-  <input type="text" placeholder="Where do you want to party">
-</div>
+  <div class="row form-container">
+    <input type="text" class="where-to-party" placeholder="Where do you want to party?">
+  </div>
 
-
-<div class="row col-6 mt-3 btn btn-success">
-  <%= link_to "Let's get Hammered!", parties_path, class: "btn btn-primary" %>
+  <div class="btn-hammered">
+    <%= link_to "Let's get Hammered!", parties_path, class: "hammered-text" %>
+  </div>
 </div>
