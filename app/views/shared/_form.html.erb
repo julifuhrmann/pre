@@ -3,7 +3,7 @@
     <%= simple_form_for(party) do |f| %>
       <%= f.input :photo, as: :file %>
       <%= f.input :name %>
-      <%= f.input :date, as: :date %>
+      <%= f.input :date, as: :date, html5: true, default: Date.today %>
       <%= f.input :status %>
       <%= f.input :description %>
       <%= f.input :user %>
