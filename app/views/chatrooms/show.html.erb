@@ -1,2 +1,14 @@
-<h1>Chatrooms#show</h1>
-<p>Find me in app/views/chatrooms/show.html.erb</p>
+<div class="container chatroom">
+  <h1><%= @chatroom.id %></h1>
+  <div class="messages">
+    <% @chatroom.messages.each do |message| %>
+      <div class="message-<%= message.id %>">
+        <small>
+          <strong><%= message.user.username %></strong>
+          <i> <%= message.created_at.strftime("%a %b %e at %l:%M %p") %> </i>
+        </small>
+        <p><%= message.content %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
