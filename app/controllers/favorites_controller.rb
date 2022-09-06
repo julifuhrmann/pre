@@ -1,9 +1,18 @@
 class FavoritesController < ApplicationController
   def create
-    @favorite = Favorite.new(favorite_params)
-    @favorite.save
+    # @favorite = Favorite.new(favorite_params)
 
-    redirect_to favorite_path(@favorite)
+      user_params = params[:user]
+      user = User.find(params[:user])
+
+      @new_favorite = Favorite.new(
+        follower_id: current_user.id,
+        followed_id: user_params
+      )
+    @new_favorite.save
+
+
+    redirect_to user_path(user), notice: "You have favorited this person"
   end
 
   def destroy

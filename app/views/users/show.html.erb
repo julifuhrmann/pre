@@ -13,4 +13,8 @@
     <p>E-Mail: <%= @user.email %></p>
     <p>Info: New to Berlin and looking for a good time! 🤠🤠🤠🤠</p>
   </div>
+
+
+<%= button_to "Follow", favorites_path(user: @user), method: :post %>
+
 </div>

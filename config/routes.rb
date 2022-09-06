@@ -19,4 +19,8 @@ Rails.application.routes.draw do
 
   resources :reviews
   resources :favorites
+  resources :chatrooms
+  resources :users, only: :show do
+    resources :favorites, only: :create
+  end
 end
