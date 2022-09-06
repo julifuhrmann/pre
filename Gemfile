@@ -81,3 +81,5 @@ end
 gem "dotenv-rails", groups: [:development, :test]
 
 gem "cloudinary"
+
+gem 'rails-bootstrap-toggle-buttons'

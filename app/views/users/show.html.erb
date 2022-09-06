@@ -15,5 +15,11 @@
         <i class="fa-regular fa-heart"></i>
       <% end %>
     </div>
-  </div>
+
+  <% if @user.favorites_as_followed.find_by(follower: current_user) %>
+    <%= button_to "Unfollow", favorite_path(followed: @user, follower: current_user), method: :delete %>
+  <% else %>
+   <%= button_to "Follow", favorites_path(user: @user), method: :post %>
+  <% end %>
+
 </div>
