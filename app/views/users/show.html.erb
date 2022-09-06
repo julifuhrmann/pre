@@ -4,22 +4,25 @@
         <%= cl_image_tag @user.avatar.key, class: "profile-pic", crop: :fill %>
       <% end %>
     <div class="bio-info">
-      <h1><%=@user.username%>'s profile:</h1>
+      <div class="biofollow">
+        <h1><%=@user.username%>'s profile:</h1>
+          <% if @user.favorites_as_followed.find_by(follower: current_user) %>
+            <%= button_to  favorite_path(followed: @user, follower: current_user), class: "herz-button", method: :delete do %>
+              <i class="fa-regular fa-heart unfollow-heart"></i>
+            <% end %>
+          <% else %>
+            <%= button_to favorites_path(user: @user), class: "herz-button", method: :post do %>
+              <i class="fa-regular fa-heart" style="color:white"></i>
+            <% end %>
+          <% end %>
+      </div>
+
       <div class="user-name-email">
         <h2>User</h2>
         <p><%= @user.username %></p>
         <h2>Bio</h2>
         <p><%= @user.bio %></p>
       </div>
-      <%= link_to favorites_path(user: @user), class: "follow-btn", method: :post do %>
-        <i class="fa-regular fa-heart"></i>
-      <% end %>
+
     </div>
-
-  <% if @user.favorites_as_followed.find_by(follower: current_user) %>
-    <%= button_to "Unfollow", favorite_path(followed: @user, follower: current_user), method: :delete %>
-  <% else %>
-   <%= button_to "Follow", favorites_path(user: @user), method: :post %>
-  <% end %>
-
 </div>
