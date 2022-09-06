@@ -15,5 +15,25 @@
         <i class="fa-regular fa-heart"></i>
       <% end %>
     </div>
+<<<<<<< HEAD
+=======
+
   </div>
+  <div style="margin-top: 25px; margin-bottom:25px ">
+    <hr>
+  </div>
+
+  <div class="user-name-email">
+    <p>Name: <%= @user.username %></p>
+    <p>E-Mail: <%= @user.email %></p>
+    <p>Info: New to Berlin and looking for a good time! 🤠🤠🤠🤠</p>
+>>>>>>> e12365ca320001c01361f7a860909b58da195dd2
+  </div>
+
+  <% if @user.favorites_as_followed.find_by(follower: current_user) %>
+    <%= button_to "Unfollow", favorite_path(followed: @user, follower: current_user), method: :delete %>
+  <% else %>
+   <%= button_to "Follow", favorites_path(user: @user), method: :post %>
+  <% end %>
+
 </div>

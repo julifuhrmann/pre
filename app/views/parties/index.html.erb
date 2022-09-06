@@ -2,18 +2,20 @@
   <div class="cards">
     <% @parties.each do |party| %>
     <div class="card mb-2">
-      <%= link_to party_path(party) do %>
+
         <div class="card-picture">
+         <%= link_to party_path(party) do %>
           <% if party.photo.attached? %>
             <%= cl_image_tag party.photo.key, height: 300, width: 358, crop: :fill %>
           <% end %>
+        <% end %>
         </div>
+
           <div class="card-description">
-            <h2><%= party.name %></h2>
-            <p><%= party.user.username %></p>
+            <h2><%= link_to party.name, party_path(party) %></h2>
+            <p><%= link_to party.user.username, user_path(party.user) %> </p>
             <p><%= party.description %></p>
           </div>
         </div>
-      <% end %>
     <% end %>
   </div>
