@@ -24,18 +24,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
     <div class="col-12">
-<<<<<<< HEAD
-        <%= render "shared/navbar" %>
-        <%= render "shared/flashes" %>
-        <%= yield %>
-      </div>
-=======
       <% unless action_name == "home" %>
         <%= render "shared/navbar" %>
       <% end %>
       <%= render "shared/flashes" %>
       <%= yield %>
->>>>>>> ec680a5e344a8660dede274cda0c9ef84965654b
     </div>
 
   </body>
