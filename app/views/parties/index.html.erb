@@ -50,12 +50,9 @@
       <% @parties.each do |party| %>
       <div class="card-party mb-2">
         <%= link_to party_path(party), style: "display: inline-flex" do %>
-          <% if party.photo.attached? %>
-            <%= cl_image_tag party.photo.key, height: 92, width: 92, crop: :fill %>
-          <% end %>
         <div class="card-description">
-          <h2 id="name"><%= party.name %></h2>
-          <p id="username">hosted by <strong><%= party.user.username %></strong></p>
+          <h2 id="name"><%= link_to party.name, party_path(party) %></h2>
+          <p id="username">hosted by <strong><%= link_to party.user.username, user_path(party.user) %></strong></p>
         </div>
       </div>
       <% end %>

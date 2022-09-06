@@ -15,6 +15,8 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Syne&display=swap" rel="stylesheet" />
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
@@ -22,10 +24,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
     <div class="col-12">
+      <% unless action_name == "home" %>
         <%= render "shared/navbar" %>
-        <%= render "shared/flashes" %>
-        <%= yield %>
-      </div>
+      <% end %>
+      <%= render "shared/flashes" %>
+      <%= yield %>
     </div>
 
   </body>
