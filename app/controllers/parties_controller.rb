@@ -9,6 +9,7 @@ class PartiesController < ApplicationController
   def show
     @review = Review.new
     @request = Request.new
+    @chatroom = Chatroom.new(sender_id: current_user, receiver_id: @party.user)
     if @party.requests.where(user: current_user).exists?
       @request = @party.requests.find_by(user: current_user)
     else
@@ -21,13 +22,17 @@ class PartiesController < ApplicationController
   end
 
   def create
+    require 'date'
     @party = Party.new(
       status: party_params[:status].to_i,
       name: party_params[:name],
-      date: Date.parse("#{party_params['date(3i)']}/#{party_params['date(2i)']}/#{party_params['date(1i)']}"),
+      # date: Date.parse("#{party_params['date(3i)']}/#{party_params['date(2i)']}/#{party_params['date(1i)']}"),
+      date: party_params[:date],
       description: party_params[:description],
-      address: party_params[:address]
+      address: party_params[:address],
+      photo: party_params[:photo]
     )
+    # @party = Party.new(party_params)
     @party.user = current_user
     @party.save!
 
@@ -56,6 +61,6 @@ class PartiesController < ApplicationController
   end
 
   def party_params
-    params.require(:party).permit(:name, :date, :status, :description, :address)
+    params.require(:party).permit(:name, :date, :status, :description, :address, :photo)
   end
 end
