@@ -11,23 +11,23 @@ Party.destroy_all
 User.destroy_all
 
 berlin = [
-  "Psychedelic Inception",
+  "Inception inception",
   "Move iT!",
-  "LE WAGON GRADUATION PARTY",
+  "LW GRAD PARTY",
   "Mega 90er",
   "Till Last One Stands",
   "Nerds UNITE",
   "80er-Kultparty",
-  "drinking alone in görlitzer",
-  "Great 80s Open Air Party",
+  "drinking alone",
+  "Great 80s Open Air",
   "ReBOOTERs",
   "Why am I here?!",
   "bestPITCH",
   "Rentners",
-  "COUNTER STRIKE LAN PARTY",
-  "Sebi takes us to the park",
+  "CS LAN PARTY",
+  "Sebi's day in the park",
   "TA appliers",
-  "Why did I choose DATA SCIENCE"
+  "CSS cry-together"
 ]
 
 people = [
@@ -77,7 +77,7 @@ i = 0
     status: rand(0..1),
     user: user,
     description: Faker::Hipster.paragraph(sentence_count: 2),
-    address: "Kastanienallee 27, 10435 Berlin"
+    address: ["Am Wriezener bhf Friedrichshain 10243 Berlin", "Hauptstraße 15 Rummelsburg 10317 Berlin", "Rudi-Dutschke-Straße 26 Mitte 10969 Berlin"].sample
   )
   cloudinary = Cloudinary::Search.expression('folder=parties').execute["resources"][i]
   party.photo.attach(io: URI.open(cloudinary["url"]),

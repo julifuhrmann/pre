@@ -14,4 +14,9 @@ class Party < ApplicationRecord
     restrict: 0,
     open: 1
   }
+
+  def self.top_three
+    @parties = Party.last(3)
+  end
+
 end

@@ -1,71 +1,25 @@
-.card {
+.card-party {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 16px;
-  gap: 4px;
-
-  width: 261px;
+  overflow: hidden;
   height: 92px;
-
-  background: #FFFFFF;
-
-  /* Inside auto layout */
-
-  flex: none;
-  order: 1;
-  flex-grow: 0;
+  background: white;
+  box-shadow: (0px 4px 4px rgba(0, 0, 0, 0.10));
+  border-radius: 4px;
 }
 
-.card-picture {
-  height: 100%;
-  width: 92px;
-  object-fit: cover;
+.card-description {
+  padding: 16px
+
 }
 
-.second-title {
-  left: 0%;
-  right: 2.38%;
-  top: 0%;
-  bottom: 11.43%;
-
+#name {
   font-family: 'Syne';
   font-style: normal;
-  font-weight: 600;
-  font-size: 26px;
-  line-height: 31px;
-
   color: #E94560;
 }
 
-.party-description {
-  width: 252px;
-  height: 35px;
-  align-items: center;
-
-
-  p{
-    width: 229px;
-    height: 17px;
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-    color: #16213E;
-  }
-
-  h2 {
-    width: 229px;
-    height: 26px;
-
-    font-family: 'Syne';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: #E94560;
-  }
+#username {
+  font-family: 'Inter';
+  font-style: bold;
+  color: #16213E;
 }
