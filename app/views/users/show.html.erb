@@ -1,17 +1,19 @@
 <div class="user-settings">
-    <% if @user.avatar.attached? %>
-      <%= cl_image_tag @user.avatar.key, class: "profile-pic", crop: :fill %>
-    <% end %>
-  <div class="bio-info">
-    <h1><%=@user.username%>'s profile:</h1>
-    <div class="user-name-email">
-      <h2>User</h2>
-      <p><%= @user.username %></p>
-      <h2>Bio</h2>
-      <p><%= @user.bio %></p>
+  <div class="profile-div">
+      <% if @user.avatar.attached? %>
+        <%= cl_image_tag @user.avatar.key, class: "profile-pic", crop: :fill %>
+      <% end %>
+    <div class="bio-info">
+      <h1><%=@user.username%>'s profile:</h1>
+      <div class="user-name-email">
+        <h2>User</h2>
+        <p><%= @user.username %></p>
+        <h2>Bio</h2>
+        <p><%= @user.bio %></p>
+      </div>
+      <%= link_to favorites_path(user: @user), class: "follow-btn", method: :post do %>
+        <i class="fa-regular fa-heart"></i>
+      <% end %>
     </div>
-    <%= link_to favorites_path(user: @user), class: "follow-btn", method: :post do %>
-      <i class="fa-regular fa-heart"></i>
-    <% end %>
   </div>
 </div>
