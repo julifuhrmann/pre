@@ -7,13 +7,17 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Syne&display=swap" rel="stylesheet" />
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
 
-    <div class="container col-12">
-      <%= render "shared/navbar" %>
+    <div class="col-12">
+      <% unless action_name == "home" %>
+        <%= render "shared/navbar" %>
+      <% end %>
       <%= render "shared/flashes" %>
       <%= yield %>
     </div>
