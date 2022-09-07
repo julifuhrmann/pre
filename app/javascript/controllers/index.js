@@ -15,3 +15,6 @@ application.register("hello", HelloController)
 
 import InsertReviewController from "./insert_review_controller"
 application.register("insert-review", InsertReviewController)
+
+import NavbarController from "./navbar_controller"
+application.register("navbar", NavbarController)
