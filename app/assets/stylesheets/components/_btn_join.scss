@@ -1,12 +1,10 @@
 .btn-join {
-  position: absolute;
   background-color: rgba(233,69,96,1);
-  width: 75%;
+  width: 353px;
   height: 50px;
   padding: 14px 28px;
   border-radius: 4px;
   box-shadow: 2px 2px 4px rgba(10,10,10,.2);
-  left: 13%;
   text-align: center;
   color: white;
   font-family: 'Syne';
@@ -19,14 +17,29 @@
 
 
 .btn-static {
-  position: absolute;
   background: #BBBBBB;
-  width: 75%;
+  width: 353px;
   height: 50px;
   padding: 14px 28px;
   border-radius: 4px;
   box-shadow: 2px 2px 4px rgba(10,10,10,.2);
-  left: 13%;
+  text-align: center;
+  color: white;
+  font-family: 'Syne';
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.btn-destroy {
+  background: #16213E;
+  width: 353px;
+  height: 50px;
+  padding: 14px 28px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px rgba(10,10,10,.2);
   text-align: center;
   color: white;
   font-family: 'Syne';

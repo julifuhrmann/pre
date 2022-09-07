@@ -11,6 +11,7 @@ class PartiesController < ApplicationController
     @user = @party.user
     @review = Review.new
     @request = Request.new
+    @this_request = @party.requests.where(user: current_user).first
     @chatroom = Chatroom.new
     if @party.requests.where(user: current_user).exists?
       @request = @party.requests.find_by(user: current_user)
