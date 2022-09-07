@@ -50,10 +50,7 @@ people = [
   "KylieJenner",
   "Zolema",
   "Carmen",
-  "Nina",
-  "Juliana",
   "HermioneGranger",
-  "TaylorSwift"
 ]
 
 puts "Create 18 users..."
