@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.party = @party
 
-    @review.user = @user
+    @review.user = current_user
     @review.save
     respond_to do |format|
       if @review.save
