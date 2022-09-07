@@ -49,7 +49,7 @@
 <div class="d-flex justify-content-center">
     <div class="cards-parties-all">
       <% @parties.each do |party| %>
-      <div class="card-party mb-2">
+      <div class="card-partay mb-2">
         <%= link_to party_path(party), style: "display: inline-flex" do %>
           <% if party.photo.attached? %>
             <%= cl_image_tag party.photo.key, height: 92, width: 92, crop: :fill %>
