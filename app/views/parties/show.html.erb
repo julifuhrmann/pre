@@ -17,14 +17,14 @@
 
   <%# simpleform for the join request. If a request exists show cancel button  %>
   <% if @party.requests.where(user: current_user).exists? %>
-    <%= link_to "Cancel Request!",
+    <%= link_to "Cancel request",
         party_request_path(@party, @request),
         data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-        class: "btn btn-danger" %>
+        class: "btn-static" %>
   <% else %>
     <%= simple_form_for([@party, @request]) do |f| %>
-    <%= f.button :submit, "JOIN IN!",
-                          class: "btn-hammered" %>
+    <%= f.button :submit, "Join in!",
+                          class: "btn-join" %>
     <% end %>
   <% end %>
 
