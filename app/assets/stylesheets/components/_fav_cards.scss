@@ -1,0 +1,15 @@
+.card-favorites {
+  display: flex;
+  overflow: hidden;
+  height: 100px;
+  background: white;
+  box-shadow: (0px 4px 4px rgba(0, 0, 0, 0.10));
+  border-radius: 4px;
+  padding: 15px;
+  margin: 5px;
+}
+
+.button-size {
+  height: 50px;
+  width: 50px;
+}

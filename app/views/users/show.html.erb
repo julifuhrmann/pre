@@ -7,7 +7,7 @@
       <div class="biofollow">
         <h1><%=@user.username%>'s profile:</h1>
           <% if @user.favorites_as_followed.find_by(follower: current_user) %>
-            <%= button_to  favorite_path(followed: @user, follower: current_user), class: "herz-button", method: :delete do %>
+            <%= button_to favorite_path(followed: @user, follower: current_user), class: "herz-button", method: :delete do %>
               <i class="fa-regular fa-heart unfollow-heart"></i>
             <% end %>
           <% else %>
