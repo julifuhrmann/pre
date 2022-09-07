@@ -10,6 +10,7 @@ class PartiesController < ApplicationController
   def show
     @review = Review.new
     @request = Request.new
+    @this_request = @party.requests.where(user: current_user).first
     @chatroom = Chatroom.new(sender_id: current_user, receiver_id: @party.user)
     if @party.requests.where(user: current_user).exists?
       @request = @party.requests.find_by(user: current_user)
