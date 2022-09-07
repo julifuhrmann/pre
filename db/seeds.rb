@@ -46,7 +46,7 @@ people = [
   "JBIEBER",
   "ArianaGrande",
   "KylieJenner",
-  "Zolema",
+  "Zulema",
   "Carmen"
 ]
 
