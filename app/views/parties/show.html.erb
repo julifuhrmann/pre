@@ -1,9 +1,19 @@
-<h1>
-  <%= @party.name %>
-</h1>
-<%= cl_image_tag @party.photo.key, height: 300, width: 400, crop: :fill %>
-<p><%= @party.date  %></p>
-<p><%= @party.description  %></p>
+<div class="card-party">
+  <%= cl_image_tag @party.photo.key %>
+    <div class="card-party-infos">
+      <div>
+        <div>
+          <h2 class="card-party-date"><%= @party.date.strftime("%^a, %d %^b") %></h2>
+          <h1><%= @party.name %></h1>
+        </div>
+        <p><%= @party.description %></p>
+      </div>
+      <%= link_to user_path  do %>
+        <%= cl_image_tag @party.user.avatar.key, class: "card-party-user avatar-bordered" %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
   <%# simpleform for the join request. If a request exists show cancel button  %>
   <% if @party.requests.where(user: current_user).exists? %>
@@ -14,7 +24,7 @@
   <% else %>
     <%= simple_form_for([@party, @request]) do |f| %>
     <%= f.button :submit, "JOIN IN!",
-                          class: "btn btn-primary" %>
+                          class: "btn-hammered" %>
     <% end %>
   <% end %>
 
@@ -24,7 +34,6 @@
 <%# if current_user.request.status == 1  %>
   <p><%#= @party.address  %></p>
 <%# end %>
-
 
 <div data-controller="insert-review">
   <div data-insert-review-target="items">

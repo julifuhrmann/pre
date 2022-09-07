@@ -1,0 +1,46 @@
+.carousel-caption {
+  position: absolute;
+  right: 15%;
+  bottom: 1.25rem !important;
+  left: 15%;
+  padding-top: 1.25rem !important;
+  padding-bottom: 0.25rem !important;
+  color: #fff;
+  text-align: left !important;
+  z-index: 3;
+
+  h5 {
+    font-family: 'Syne' !important;
+    font-style: normal !important;
+    font-size: 20px !important;
+  }
+
+  p {
+    font-family: 'Inter' !important;
+    font-style: normal !important;
+    font-size: 14px !important;
+  }
+}
+
+.carousel-item {
+
+
+  img {
+    object-fit: cover;
+    height: 34vh;
+  }
+}
+
+.shadow{
+  position: absolute;
+  width: 100vh;
+  height: 20vh;
+  z-index: 1;
+  top: 119px;
+  opacity: 29.2;
+  background: linear-gradient(180deg, rgba(22, 33, 62, 0) 50%, #16213E 105.75%) !important;
+}
+
+.carousel-indicators{
+  z-index: 3 !important;
+}

@@ -4,6 +4,7 @@ class PartiesController < ApplicationController
 
   def index
     @parties = Party.all
+    @carousel = Party.top_three
   end
 
   def show
@@ -54,6 +55,7 @@ class PartiesController < ApplicationController
 
     redirect_to parties_path, status: :see_other
   end
+
 
   private
 

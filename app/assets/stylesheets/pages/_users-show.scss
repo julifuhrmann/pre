@@ -1,0 +1,83 @@
+body {
+  margin: 0 auto;
+}
+
+h2 {
+  color: rgba(233,69,96,1);
+}
+
+a {
+  text-decoration: none;
+}
+
+.user-settings {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.profile-pic {
+  width: 100vw;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  box-shadow: 0 4px 2px -1px rgb(165, 165, 165);
+  margin-bottom: 10px;
+}
+
+.bio-info {
+  margin: 10px;
+
+  h1, h2, p {
+    margin: 15px;
+    padding: 5px;
+  }
+
+
+  .follow-btn {
+    position: absolute;
+    left: 80%;
+    top: 63%;
+  }
+
+  .fa-heart {
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: #E94560;
+    border-radius: 4px;
+    font-size: 24px;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .unfollow-heart{
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    font-size: 23px;
+    color: #d75151;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+  }
+
+}
+
+.profile-div {
+  position: absolute;
+}
+
+.herz-button{
+  border: none
+}
+
+
+.biofollow{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

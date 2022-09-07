@@ -1,5 +1,6 @@
 .navbar-lewagon {
-  justify-content: space-between;;
+  justify-content: space-between;
+  z-index: 10000;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -7,5 +8,12 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 50px;
+  height: 50px;
+  left: 19px;
+  top: 17px;
+}
+
+.my-toggler {
+  color: rgba(233,69,96,1) !important;
 }

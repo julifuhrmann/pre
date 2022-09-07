@@ -1,4 +1,11 @@
 class FavoritesController < ApplicationController
+  before_action :set_favorite, only: :destroy
+
+  def index
+    @favorites = Favorite.where(follower_id: current_user.id)
+    # @my_favorite_users = User.where(follower_id: current_user.id)
+  end
+
   def create
     # @favorite = Favorite.new(favorite_params)
 
@@ -18,10 +25,14 @@ class FavoritesController < ApplicationController
   def destroy
     @favorite.destroy
 
-    redirect_to favorites_path, status: :see_other
+    redirect_to user_path, status: :see_other
   end
 
   private
+
+  def set_favorite
+    @favorite = Favorite.find_by(followed: params[:followed], follower: params[:follower])
+  end
 
   def favorite_params
     params.require(:favorite).permit(:followed_id, :follower_id)

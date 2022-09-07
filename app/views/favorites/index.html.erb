@@ -2,3 +2,9 @@
 <p>Find me in app/views/favorites/index.html.erb</p>
 <a href="#" class="follow-btn"></a>
 <button class="follow-btn"></button>
+
+<ul>
+  <% @favorites.each do |favorite| %>
+    <li><%= favorite.followed.username %></li>
+  <% end %>
+</ul>
