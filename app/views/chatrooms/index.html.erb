@@ -1,15 +1,21 @@
-<div class="container chatroom">
+<div class="container">
   <h1>Messages</h1>
-  <div class="chatrooms">
-  <%#= TODO: needs  %>
-    <% @chatroom.each do |chatroom| %>
-      <div class="Chatroom-<%= chatroom.id %>">
-        <small>
-          <strong><%= chatroom.user.username %></strong>
-          <i> <%= chatroom.created_at.strftime("%a %b %e at %l:%M %p") %> </i>
-        </small>
-        <p><%= chatroom.content %></p>
-      </div>
-    <% end %>
-  </div>
+      <% @chatrooms.each do |chatroom| %>
+        <%= link_to chatroom_path(chatroom) do %>
+        <div class="avatar-username d-flex">
+          <h1>
+            <% if chatroom %>
+              <% if chatroom.receiver == current_user %>
+                <%= cl_image_tag chatroom.sender.avatar.key, height: 40, width: 40, crop: :fill %>
+                <%= chatroom.sender.username %>
+              <% else %>
+                <%= cl_image_tag chatroom.receiver.avatar.key, height: 40, width: 40, crop: :fill %>
+                <%= chatroom.receiver.username %>
+              <% end %>
+            </h1>
+              <i> <%= chatroom.messages.last.created_at.strftime("%a %b %e at %l:%M %p") unless chatroom.messages.empty? %> </i>
+          </div>
+          <% end %>
+        <% end %>
+      <% end %>
 </div>

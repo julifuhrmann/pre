@@ -4,35 +4,36 @@
       <%= image_tag "logo.png"%>
     <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <div>
+      <button data-action="click->navbar#menu" class="navbar-toggler" type="button"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <%= link_to "+Party", new_party_path, class: "btn btn-success btn-sm mx-3" %>
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", parties_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to current_user.email, edit_user_registration_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-            <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+    <div data-navbar-target="navbar" class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to "Add a Party!", new_party_path, class: "btn nav-item add-party" %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "Home", parties_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
               <%= link_to "My Favorites", favorites_path , class: "dropdown-item" %>
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
+            </li>
+            <li class="nav-item">
+              <%= link_to current_user.email, edit_user_registration_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item dropdown">
+              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item nav-link" %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            </li>
+          <% end %>
+        </ul>
     </div>
   </div>
 </div>

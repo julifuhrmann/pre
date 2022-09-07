@@ -1,44 +1,59 @@
-<h1>
-  <%= @party.name %>
-</h1>
-<%= cl_image_tag @party.photo.key, height: 300, width: 400, crop: :fill %>
-<p><%= @party.date  %></p>
-<p><%= @party.description  %></p>
-
-  <%# simpleform for the join request. If a request exists show cancel button  %>
-  <% if @party.requests.where(user: current_user).exists? %>
-    <%= link_to "Cancel Request!",
-        party_request_path(@party, @request),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-        class: "btn btn-danger" %>
-  <% else %>
-    <%= simple_form_for([@party, @request]) do |f| %>
-    <%= f.button :submit, "JOIN IN!",
-                          class: "btn btn-primary" %>
-    <% end %>
-  <% end %>
+<div class="card-party">
+  <%= cl_image_tag @party.photo.key %>
+    <div class="card-party-infos">
+      <div>
+        <div>
+          <h2 class="card-party-date"><%= @party.date.strftime("%^a, %d %^b") %></h2>
+          <h1><%= @party.name %></h1>
+        </div>
+        <p><%= @party.description %></p>
+      </div>
+      <%= link_to user_path  do %>
+        <%= cl_image_tag @party.user.avatar.key, class: "card-party-user avatar-bordered" %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
   <%# BUTTON TO MESSAGE HOST %>
-    <%= link_to @party.user.username, user_chatrooms_path(@party.user),
-      data: { turbo_method: :post } %>
-<%# TODO implement address to map if user join request accepted  %>
+  <%# <%= link_to "Contact Host", new_chatroom_path(request.parameters) %>
 
-<%# if current_user.request.status == 1  %>
-  <p><%#= @party.address  %></p>
-<%# end %>
+  <%# simpleform for the join request. If a request exists show cancel button  %>
+  <div class="buttons d-flex flex-column align-items-center">
+    <% if @party.user == current_user %>
+        <%= link_to "Delete Event",
+            party_path(@party),
+            data: {turbo_method: :delete},
+            class: "btn-destroy" %>
+        <%= link_to "Edit Details", edit_party_path(@party), class: "btn" %>
+      <% else %>
+        <% unless @this_request.nil?  %>
+          <%= link_to "Cancel request",
+              party_request_path(@party, @request),
+              data: {turbo_method: :delete},
+              class: "btn-static" %>
+        <% else %>
+          <%= simple_form_for([@party, @request]) do |f| %>
+          <%= f.button :submit, "Join in!",
+                                class: "btn btn-join" %>
+          <% end %>
+      <% end %>
+    <% end %>
+  </div>
 
-<%= link_to "User's profile", user_path, class: "" %>
+<% unless @this_request.nil? || if @this_request.status == "accepted" %>
+  <p><%= @party.address  %></p>
+  <% end %>
+<% end %>
 
-<%# TODO implement form if current_user assisted the party %>
-<div data-controller="insert-review">
+<%# <div data-controller="insert-review">
   <div data-insert-review-target="items">
     <%= render partial: "reviews/form", locals: {party: @party, review: @review} %>
-  <%= link_to "Back to all parties", parties_path %>
-</div>
-<%# end %>
+  <%# <%= link_to "Back to all parties", parties_path %>
+<%# </div> %>
 
-<p>
-  <% @party.reviews.each do |review| %>
-    <%= review.comment %>
-  <% end %>
-</p>
+<%# <p> %>
+  <%# <% @party.reviews.each do |review| %>
+    <%# <%= review.comment %>
+  <%# <% end %>
+<%# </p> %>
