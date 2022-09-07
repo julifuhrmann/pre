@@ -27,7 +27,9 @@ berlin = [
   "CS LAN PARTY",
   "Sebi's day in the park",
   "TA appliers",
-  "CSS cry-together"
+  "CSS cry-together",
+  "Demo Day",
+  "Friday Drinks"
 ]
 
 people = [
@@ -47,7 +49,11 @@ people = [
   "ArianaGrande",
   "KylieJenner",
   "Zolema",
-  "Carmen"
+  "Carmen",
+  "Nina",
+  "Juliana",
+  "HermioneGranger",
+  "TaylorSwift"
 ]
 
 puts "Create 18 users..."
