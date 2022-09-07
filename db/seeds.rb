@@ -50,10 +50,10 @@ people = [
   "Carmen"
 ]
 
-puts "Create 18 users..."
+puts "Create 17 users..."
 
 i = 0
-18.times do
+17.times do
   email = "#{people[i]}@preparty.fun"
 
   user = User.new(
