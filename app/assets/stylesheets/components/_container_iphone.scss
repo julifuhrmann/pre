@@ -3,7 +3,7 @@
   width: 390px;
 }
 
-#happening {
+.happening {
   font-family: 'Syne';
   font-style: normal;
   font-size: 36px;
@@ -13,4 +13,12 @@
   padding-left: 16px;
   padding-right: 16px;
   color: #FFFFFF;
+  margin-top: -76px;
+  position: relative;
+  top: 76px;
+}
+
+.title-inv {
+  margin-top: 0px;
+  margin-bottom: 75px;
 }

@@ -1,5 +1,6 @@
 .navbar-lewagon {
-  justify-content: space-between;;
+  justify-content: space-between;
+  z-index: 1;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -11,4 +12,8 @@
   height: 50px;
   left: 19px;
   top: 17px;
+}
+
+.my-toggler {
+  color: rgba(233,69,96,1) !important;
 }
