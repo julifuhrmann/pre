@@ -16,7 +16,7 @@
 </div>
 
   <%# BUTTON TO MESSAGE HOST %>
-  <%= link_to "Contact Host", new_chatroom_path(request.parameters) %>
+  <%# <%= link_to "Contact Host", new_chatroom_path(request.parameters) %>
 
   <%# simpleform for the join request. If a request exists show cancel button  %>
   <div class="buttons d-flex flex-column align-items-center">
@@ -46,14 +46,14 @@
   <% end %>
 <% end %>
 
-<div data-controller="insert-review">
+<%# <div data-controller="insert-review">
   <div data-insert-review-target="items">
     <%= render partial: "reviews/form", locals: {party: @party, review: @review} %>
-  <%= link_to "Back to all parties", parties_path %>
-</div>
+  <%# <%= link_to "Back to all parties", parties_path %>
+<%# </div> %>
 
-<p>
-  <% @party.reviews.each do |review| %>
-    <%= review.comment %>
-  <% end %>
-</p>
+<%# <p> %>
+  <%# <% @party.reviews.each do |review| %>
+    <%# <%= review.comment %>
+  <%# <% end %>
+<%# </p> %>
