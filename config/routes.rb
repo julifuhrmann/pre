@@ -14,8 +14,10 @@ Rails.application.routes.draw do
   end
   resources :reviews
   resources :favorites
+  resources :requests, only: [:index]
+  patch "accept_request", to: "requests#accept"
+  patch "decline_request", to: "requests#decline"
   resources :users, only: :show do
     resources :favorites, only: :create
   end
-
 end

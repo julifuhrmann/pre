@@ -2,8 +2,7 @@ class Request < ApplicationRecord
   belongs_to :party
   belongs_to :user
 
-  validates :user, uniqueness: { scope: :party,
-                                message: "You already send an request!" }
+  validates :user, uniqueness: { scope: :party }
 
   enum status: {
     pending: 0,
