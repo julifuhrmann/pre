@@ -2,7 +2,7 @@
     data-controller="chatroom-subscription"
     data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id if @chatroom.presence %>"
 >
-  <div class="blue-space" id="blue-margin">
+  <div class="blue-header" id="blue-margin">
     <div class="avatar username">
       <h1>
           <%= cl_image_tag @answerer.avatar.key, height: 50, width: 50, crop: :fill, class: "avatar-bordered" %>
@@ -10,15 +10,16 @@
       </h1>
     </div>
 
-  <% @chatroom.messages.each do |message| %>
-    <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>"
-        data-chatroom-subscription-target="messages">
-      <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
-        <%= render "messages/message", message: message %>
+  <div class="messages-container">
+    <% @chatroom.messages.each do |message| %>
+      <div class="message-row <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>"
+          data-chatroom-subscription-target="messages">
+        <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+          <%= render "messages/message", message: message %>
+        </div>
       </div>
-    </div>
-  <% end %>
-
+    <% end %>
+  </div>
 
     <div class="type-container">
       <%= simple_form_for [@chatroom, @message],

@@ -99,3 +99,23 @@
   background-color: white;
   border: none;
 }
+
+.blue-header {
+  height: 204px;
+  width: 390px;
+  object-fit: cover;
+  filter: drop-shadow(2px 2px 4px rgba(10, 10, 10, 0.2));
+
+  background: #16213E;
+
+  h1, p {
+    color: white;
+    margin: 10px;
+  }
+
+  h1 {
+    margin-top: 95px;
+    font-size: 29px;
+    margin-bottom: 28px;
+  }
+}
