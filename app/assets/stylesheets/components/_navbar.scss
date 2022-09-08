@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  z-index: 1;
+  z-index: 10000;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -14,6 +14,37 @@
   top: 17px;
 }
 
-.my-toggler {
-  color: rgba(233,69,96,1) !important;
+.fa-bars {
+  color: rgba(233,69,96,1);
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-collapse {
+  display: flex;
+}
+
+.me-auto {
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: 200px;
+}
+
+.add-party {
+  padding: 5px;
+  background-color: rgba(233,69,96,1);
+  color: white;
+  border-radius: 4px;
+}
+
+.show{
+  display: inline;
+  background-color: white;
+  padding: 0;
+}
+
+.navbar_blue {
+  background-color: #16213E;
 }
