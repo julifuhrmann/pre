@@ -21,17 +21,12 @@ a {
   left: 0;
   top: 0;
   z-index: 0;
-  box-shadow: 0 4px 2px -1px rgb(165, 165, 165);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
   margin-bottom: 10px;
 }
 
 .bio-info {
   margin: 10px;
-
-  h1, h2, p {
-    margin: 15px;
-    padding: 5px;
-  }
 
 
   .follow-btn {
@@ -75,7 +70,7 @@ a {
 
 .herz-button{
   border: none;
-  padding: 0;
+  padding: 0px;
 }
 
 
@@ -83,4 +78,32 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  h1 {
+    font-family: 'Syne';
+    font-style: normal;
+    font-size: 36px;
+    color: #16213E;
+  }
+}
+
+.user-name-email {
+  width: 350px;
+}
+
+
+#bio-h2 {
+  font-family: 'Syne';
+  font-style: normal;
+  font-size: 26px;
+  color: #E94560;
+  padding-bottom: 16px;
+}
+
+
+#bio-p {
+  font-family: 'Inter';
+  font-size: 16px;
+  color: #16213E;
+
 }
