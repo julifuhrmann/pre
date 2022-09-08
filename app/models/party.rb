@@ -18,5 +18,4 @@ class Party < ApplicationRecord
   def self.top_three
     @parties = Party.last(3)
   end
-
 end

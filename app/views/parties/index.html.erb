@@ -1,8 +1,6 @@
 <div class="container-iphone" style="background-color:#16213E;">
-  <div class="title-inv">
-    <h1 class="happening">Happening in your area</h1>
-  </div>
-
+  <h1 class="happening">Happening in your area</h1>
+  
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -46,10 +44,10 @@
   </div>
 <br>
 
-<div class="d-flex justify-content-center">
+<div class="d-flex flex-column align-items-center">
     <div class="cards-parties-all">
       <% @parties.each do |party| %>
-      <div class="card-party mb-2">
+      <div class="card-partay mb-2">
         <%= link_to party_path(party), style: "display: inline-flex" do %>
           <% if party.photo.attached? %>
             <%= cl_image_tag party.photo.key, height: 92, width: 92, crop: :fill %>

@@ -8,9 +8,11 @@ class PartiesController < ApplicationController
   end
 
   def show
+    @user = @party.user
     @review = Review.new
     @request = Request.new
-    @chatroom = Chatroom.new(sender_id: current_user, receiver_id: @party.user)
+    @this_request = @party.requests.where(user: current_user).first
+    @chatroom = Chatroom.new
     if @party.requests.where(user: current_user).exists?
       @request = @party.requests.find_by(user: current_user)
     else
@@ -63,6 +65,6 @@ class PartiesController < ApplicationController
   end
 
   def party_params
-    params.require(:party).permit(:name, :date, :status, :description, :address, :photo)
+    params.require(:party).permit(:name, :date, :status, :description, :address)
   end
 end

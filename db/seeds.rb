@@ -27,7 +27,9 @@ berlin = [
   "CS LAN PARTY",
   "Sebi's day in the park",
   "TA appliers",
-  "CSS cry-together"
+  "CSS cry-together",
+  "Demo Day",
+  "Friday Drinks"
 ]
 
 people = [
@@ -46,14 +48,14 @@ people = [
   "JBIEBER",
   "ArianaGrande",
   "KylieJenner",
-  "Zolema",
+  "Zulema",
   "Carmen"
 ]
 
-puts "Create 18 users..."
+puts "Create 17 users..."
 
 i = 0
-18.times do
+17.times do
   email = "#{people[i]}@preparty.fun"
 
   user = User.new(

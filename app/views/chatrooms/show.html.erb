@@ -1,17 +1,12 @@
 <div class="container chatroom"
     data-controller="chatroom-subscription"
-    data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
+    data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id if @chatroom.presence %>"
 >
 
   <div class="avatar username">
     <h1>
-      <% if @chatroom.receiver == current_user %>
-      <%= cl_image_tag @chatroom.sender.avatar.key, height: 40, width: 40, crop: :fill %>
-      <%= @chatroom.sender.username %>
-      <% else %>
-        <%= cl_image_tag @chatroom.receiver.avatar.key, height: 40, width: 40, crop: :fill %>
-        <%= @chatroom.receiver.username %>
-      <% end %>
+        <%= cl_image_tag @answerer.avatar.key, height: 40, width: 40, crop: :fill %>
+        <%= @answerer.username %>
     </h1>
   </div>
 

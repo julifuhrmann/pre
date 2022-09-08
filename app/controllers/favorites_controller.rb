@@ -19,7 +19,7 @@ class FavoritesController < ApplicationController
     @new_favorite.save
 
 
-    redirect_to user_path(user), notice: "You have favorited this person"
+    redirect_to user_path(user)
   end
 
   def destroy
