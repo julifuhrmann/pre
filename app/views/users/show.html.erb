@@ -1,28 +1,50 @@
-<div class="user-settings">
-  <div class="profile-div">
-      <% if @user.avatar.attached? %>
-        <%= cl_image_tag @user.avatar.key, class: "profile-pic", crop: :fill %>
-      <% end %>
-    <div class="bio-info">
-      <div class="biofollow">
-        <h1><%=@user.username%>'s profile:</h1>
-          <% if @user.favorites_as_followed.find_by(follower: current_user) %>
-            <%= button_to favorite_path(followed: @user, follower: current_user), class: "herz-button", method: :delete do %>
-              <i class="fa-regular fa-heart unfollow-heart"></i>
+<div class="container-iphone">
+  <div class="user-settings">
+    <div class="profile-div">
+        <% if @user.avatar.attached? %>
+          <%= cl_image_tag @user.avatar.key, class: "profile-pic", crop: :fill %>
+        <% end %>
+      <div class="bio-info">
+        <div class="biofollow">
+          <h1><%=@user.username%></h1>
+            <% if @user.favorites_as_followed.find_by(follower: current_user) %>
+              <%= button_to favorite_path(followed: @user, follower: current_user), class: "herz-button", method: :delete do %>
+                <i class="fa-regular fa-heart unfollow-heart"></i>
+              <% end %>
+            <% else %>
+              <%= button_to favorites_path(user: @user), class: "herz-button", method: :post do %>
+                <i class="fa-regular fa-heart" style="color:white"></i>
+              <% end %>
             <% end %>
-          <% else %>
-            <%= button_to favorites_path(user: @user), class: "herz-button", method: :post do %>
-              <i class="fa-regular fa-heart" style="color:white"></i>
-            <% end %>
-          <% end %>
-      </div>
+        </div>
 
-      <div class="user-name-email">
-        <h2>User</h2>
-        <p><%= @user.username %></p>
-        <h2>Bio</h2>
-        <p><%= @user.bio %></p>
-      </div>
+        <div class="user-name-email">
+          <h2 id="bio-h2">BIO</h2>
+          <p id="bio-p"> iosdahoiosj;dks;lkfjdjfjdl;j f;lj</p>
+        </div>
 
+        <div class="user-upcoming-events">
+          <h2 id="bio-h2">Upcoming Events</h2>
+          <div class="d-flex flex-column align-items-center">
+            <div class="cards-parties-all">
+              <% Party.top_three.each do |party| %>
+              <div class="card-partay mb-2">
+                <%= link_to party_path(party), style: "display: inline-flex" do %>
+                  <% if party.photo.attached? %>
+                    <%= cl_image_tag party.photo.key, height: 92, width: 92, crop: :fill %>
+                  <% end %>
+                <div class="card-description">
+                  <h2 id="name"><%= party.name %></h2>
+                  <p id="username">hosted by <strong><%= party.user.username %></strong></p>
+                </div>
+              </div>
+              <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
+  </div>
 </div>
