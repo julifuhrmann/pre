@@ -10,11 +10,16 @@
       </h1>
     </div>
 
-    <div class="messages" data-chatroom-subscription-target="messages">
-      <% @chatroom.messages.each do |message| %>
-          <%= render "messages/message", message: message %>
-      <% end %>
+<% @chatroom.messages.each do |message| %>
+  <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>"
+      data-chatroom-subscription-target="messages">
+    <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+      <%= render "messages/message", message: message %>
     </div>
+  </div>
+<% end %>
+
+
     <div class="type-container">
     <%= simple_form_for [@chatroom, @message],
       html: {data: {action: "turbo:submit-end->chatroom-subscription#resetForm"},
@@ -30,3 +35,6 @@
     </div>
   </div>
 </div>
+
+
+<p>this is the new chat</p>
