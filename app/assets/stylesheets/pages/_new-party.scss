@@ -1,0 +1,35 @@
+.blue-bg {
+  background-color: #16213E;
+  padding-top: 120px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  position: relative;
+  margin-left: -12px;
+  margin-right: -12px;
+  margin-top: -76px;
+  margin-bottom: 25px;
+
+  h2 {
+    margin-left: 10px;
+  }
+}
+
+.form-label {
+  font-family: "Nunito", "Helvetica", "sans-serif";
+}
+
+.submit-button {
+  position: absolute;
+  background-color: #e94560;
+  width: 88%;
+  height: 50px;
+  padding: 14px 28px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px rgb(180, 180, 180, 0.2);
+  top: 78%;
+  left: 6%;
+  text-align: center;
+  color: white;
+  font-family: "Nunito", "Helvetica", "sans-serif";
+}
