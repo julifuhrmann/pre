@@ -3,18 +3,18 @@
     <div class="message-<%= message.id %>">
       <p><%= message.message %></p>
       <small>
-      <strong><%= message.user.username %></strong>
-      <i> <%= message.created_at.strftime("%l:%M %p") %> </i>
+        <strong><%= message.user.username %></strong>
+      <p> <%= message.created_at.strftime("%l:%M %p") %> </p>
       </small>
     </div>
   </div>
 <% else %>
-    <div class="answerer-message">
+  <div class="answerer-message">
     <div class="message-<%= message.id %>">
       <p><%= message.message %></p>
       <small>
       <strong><%= message.user.username %></strong>
-      <i> <%= message.created_at.strftime("%l:%M %p") %> </i>
+      <p> <%= message.created_at.strftime("%l:%M %p") %> </p>
       </small>
     </div>
   </div>
