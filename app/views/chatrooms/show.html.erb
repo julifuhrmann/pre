@@ -10,14 +10,14 @@
       </h1>
     </div>
 
-<% @chatroom.messages.each do |message| %>
-  <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>"
-      data-chatroom-subscription-target="messages">
-    <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
-      <%= render "messages/message", message: message %>
+  <% @chatroom.messages.each do |message| %>
+    <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>"
+        data-chatroom-subscription-target="messages">
+      <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+        <%= render "messages/message", message: message %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 
 
     <div class="type-container">
@@ -35,6 +35,3 @@
     </div>
   </div>
 </div>
-
-
-<p>this is the new chat</p>
