@@ -2,7 +2,7 @@
   <div class="user-settings">
     <div class="profile-div">
         <% if @user.avatar.attached? %>
-          <%= cl_image_tag @user.avatar.key, class: "profile-pic", crop: :fill %>
+          <%= cl_image_tag @user.avatar.key, class: "profile-pic", width: 390, height: 390, crop: :fill %>
         <% end %>
       <div class="bio-info">
         <div class="biofollow">
@@ -20,7 +20,7 @@
 
         <div class="user-name-email">
           <h2 id="bio-h2">BIO</h2>
-          <p id="bio-p"> iosdahoiosj;dks;lkfjdjfjdl;j f;lj</p>
+          <p id="bio-p"><%= @user.bio %></p>
         </div>
 
         <div class="user-upcoming-events">
