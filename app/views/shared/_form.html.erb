@@ -4,7 +4,7 @@
       <%= f.input :photo, as: :file %>
       <%= f.input :name %>
       <%= f.input :date, as: :date, html5: true, default: Date.today %>
-      <%# <%= f.input :status %>
+      <%= f.input :status, as: :select, collection: [['Private', 'restrict'], ['Public', 'open']] %>
       <%= f.input :description %>
       <%= f.input :address %>
       <%= f.submit :submit, class:"submit-button" %>

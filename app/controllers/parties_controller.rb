@@ -25,20 +25,9 @@ class PartiesController < ApplicationController
   end
 
   def create
-    require 'date'
-    @party = Party.new(
-      status: party_params[:status].to_i,
-      name: party_params[:name],
-      # date: Date.parse("#{party_params['date(3i)']}/#{party_params['date(2i)']}/#{party_params['date(1i)']}"),
-      date: party_params[:date],
-      description: party_params[:description],
-      address: party_params[:address],
-      photo: party_params[:photo]
-    )
-    # @party = Party.new(party_params)
+    @party = Party.new(party_params)
     @party.user = current_user
-    @party.save!
-
+    @party.save
     redirect_to party_path(@party)
   end
 
@@ -65,6 +54,6 @@ class PartiesController < ApplicationController
   end
 
   def party_params
-    params.require(:party).permit(:name, :date, :status, :description, :address)
+    params.require(:party).permit(:name, :date, :status, :description, :photo, :address)
   end
 end
