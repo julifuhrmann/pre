@@ -20,6 +20,14 @@
 
 .navbar-toggler {
   border: none;
+  position: relative;
+  left: -20%;
+}
+
+.navbar-brand {
+  border: none;
+  position: relative;
+  left: 3%;
 }
 
 .navbar-collapse {
@@ -30,6 +38,8 @@
   flex-direction: column;
   align-items: flex-end;
   margin-left: 200px;
+  position: relative;
+  left: -5%;
 }
 
 .add-party {
@@ -41,8 +51,14 @@
 
 .show{
   display: inline;
+  background-color: white;
+  padding: 0;
 }
 
 .navbar_blue {
   background-color: #16213E;
+}
+
+.container-fluid {
+  padding: 0;
 }
