@@ -4,12 +4,8 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["navbar"]
 
-  connect() {
-    console.log("Hello Motto")
-  }
-
   menu(){
-    console.log("I have been clicked")
+    console.log("Hello Motto")
     if(this.navbarTarget.classList.contains("show")){
       this.navbarTarget.classList.remove("show")
     } else {
