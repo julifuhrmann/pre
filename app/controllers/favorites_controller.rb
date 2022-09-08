@@ -23,9 +23,11 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
+    raise
+    @favorite = Favorite.find(params[:id])
     @favorite.destroy
 
-    redirect_to user_path, status: :see_other
+    redirect_to favorites_path, status: :see_other
   end
 
   private
