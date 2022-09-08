@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" data-controller="navbar">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= 'navbar_blue' if current_page?(controller: '/favorites', action: 'index')%>">
   <div class="container-fluid">
     <%= link_to parties_path, class: "navbar-brand" do %>
       <%= image_tag "logo.png"%>

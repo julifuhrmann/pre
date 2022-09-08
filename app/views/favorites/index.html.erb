@@ -1,10 +1,31 @@
-<h1>Favorites#index</h1>
-<p>Find me in app/views/favorites/index.html.erb</p>
-<a href="#" class="follow-btn"></a>
-<button class="follow-btn"></button>
+<div class="container-iphone">
+  <div class="fav-page">
+    <div class="blue-space">
+      <h1>My Favorite Party People 🍾</h1>
+      <p>Your favourite companions are: </p>
+    </div>
+  </div>
 
-<ul>
-  <% @favorites.each do |favorite| %>
-    <li><%= favorite.followed.username %></li>
-  <% end %>
-</ul>
+  <div class="">
+      <% @favorites.each do |favorite| %>
+
+          <div class="card-favorites d-flex justify-content-between">
+
+              <% if favorite.followed.avatar.attached? %>
+                <%= cl_image_tag favorite.followed.avatar.key, height: 50, width: 50, crop: :fill, class: "" %>
+              <% end %>
+
+              <div class="">
+                <p><%= favorite.followed.username %></p>
+              </div>
+                <div class="">
+                  <%= button_to favorite_path(favorite), class: "herz-button button-size", method: :delete do %>
+                    <i class="fa-regular fa-heart unfollow-heart"></i>
+                  <% end %>
+                </div>
+          </div>
+  
+        <% end %>
+
+    </div>
+</div>
