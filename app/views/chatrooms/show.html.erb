@@ -16,17 +16,20 @@
       <% end %>
     </div>
     <div class="type-container">
-    <%= simple_form_for [@chatroom, @message],
-      html: {data: {action: "turbo:submit-end->chatroom-subscription#resetForm"},
-      class: "message-box d-flex"} do |f|
-    %>
-      <%= f.input :message,
-        label: false,
-        placeholder: "Message #{@answerer.username}",
-        wrapper_html: {class: "flex-grow-1"}
+      <%= simple_form_for [@chatroom, @message],
+        html: {data: {action: "turbo:submit-end->chatroom-subscription#resetForm"},
+        class: "message-box d-flex justify-space-between align-items-center"} do |f|
       %>
-      <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-    <% end %>
+        <%= f.input :message,
+          label: false,
+          placeholder: "Message #{@answerer.username}",
+          wrapper_html: {class: "flex-grow-1"},
+          input_html: {class: "input-chat pt-5"}
+        %>
+            <button type="submit" class="btn-send">
+              <i class="fa-regular fa-paper-plane"></i>
+            </button>
+        <% end %>
     </div>
   </div>
 </div>
