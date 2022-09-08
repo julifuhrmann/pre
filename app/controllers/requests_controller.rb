@@ -36,7 +36,7 @@ class RequestsController < ApplicationController
 
   def decline
     @request = Request.find(params[:format])
-    @request.update(status = 2)
+    @request.update(status: 2)
     redirect_to requests_path
   end
 
