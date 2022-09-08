@@ -4,7 +4,7 @@ follow-btn {
   padding: 5px 10px;
   color: whitesmoke;
   width: 120px;
-  border-radius: 5px;
+  border-radius: 4px;
   transition: all .3s ease-in;
 }
 
@@ -19,4 +19,5 @@ follow-btn {
 .unfollow-btn {
   background: red;
   color: white;
+  border-radius: 4px;
 }
