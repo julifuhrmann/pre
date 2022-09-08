@@ -1,29 +1,28 @@
-
-  <div class="cards">
-    <% unless @my_requests.empty? %>
-      <h3>People are waiting in line, take them in!</h3>
-      <% @people_requests.each do |request| %>
-      <div class="my requests card mb-2 d-flex">
-            <%= link_to party_path(request.party) do %>
-              <div class="card-picture">
-                <%= cl_image_tag request.user.avatar.key, height: 80, width: 80, crop: :fill %>
-              </div>
-              <div class="card-description">
-                <h2><%= request.party.name %></h2>
-                <p><%= request.status %></p>
-              </div>
-            <% end %>
-              <% if request.status == "pending" %>
-                <%= simple_form_for(request, url: accept_request_path(request)) do |f| %>
-                  <%= f.button :submit,  'accept', class: "btn btn-success" %>
-                <% end %>
-                <%= simple_form_for(request, url: decline_request_path(request)) do |f| %>
-                  <%= f.button :submit,  'decline', class: "btn btn-danger" %>
-                <% end %>
-              <% end %>
+<div class="cards">
+  <% unless @my_requests.empty? %>
+    <h3>People are waiting in line, take them in!</h3>
+    <% @people_requests.each do |request| %>
+    <div class="my requests card mb-2 d-flex">
+          <%= link_to party_path(request.party) do %>
+            <div class="card-picture">
+              <%= cl_image_tag request.user.avatar.key, height: 80, width: 80, crop: :fill %>
             </div>
-      <% end %>
+            <div class="card-description">
+              <h2><%= request.party.name %></h2>
+              <p><%= request.status %></p>
+            </div>
+          <% end %>
+            <% if request.status == "pending" %>
+              <%= simple_form_for(request, url: accept_request_path(request)) do |f| %>
+                <%= f.button :submit,  'accept', class: "btn btn-success" %>
+              <% end %>
+              <%= simple_form_for(request, url: decline_request_path(request)) do |f| %>
+                <%= f.button :submit,  'decline', class: "btn btn-danger" %>
+              <% end %>
+          <% end %>
+          </div>
     <% end %>
+  <% end %>
 
   <% unless @my_requests.empty? %>
     <h3>I want to Join<h3>
