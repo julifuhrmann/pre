@@ -10,10 +10,12 @@
       </h1>
     </div>
 
-    <div class="messages" data-chatroom-subscription-target="messages">
-      <% @chatroom.messages.each do |message| %>
-          <%= render "messages/message", message: message %>
-      <% end %>
+    <div id="messages-container">
+      <div class="messages" data-chatroom-subscription-target="messages">
+        <% @chatroom.messages.each do |message| %>
+            <%= render "messages/message", message: message %>
+        <% end %>
+      </div>
     </div>
     <div class="type-container">
     <%= simple_form_for [@chatroom, @message],

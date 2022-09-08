@@ -12,7 +12,7 @@
           <div class="card-favorites d-flex justify-content-between align-items-center">
 
               <% if favorite.followed.avatar.attached? %>
-                <%= cl_image_tag favorite.followed.avatar.key, height: 50, width: 50, crop: :fill, class: "rounded-circle" %>
+                <%= cl_image_tag favorite.followed.avatar.key, height: 50, width: 50, crop: :fill, class: "avatar-bordered" %>
               <% end %>
 
               <div class="">
