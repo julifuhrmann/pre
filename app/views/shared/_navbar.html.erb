@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= 'navbar_blue' if current_page?(controller: '/favorites', action: 'index')%>">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" data-controller="navbar">
   <div class="container-fluid">
     <%= link_to parties_path, class: "navbar-brand" do %>
       <%= image_tag "logo.png"%>
@@ -20,7 +20,7 @@
               <%= link_to "Home", parties_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to "My Favorites", favorites_path , class: "dropdown-item" %>
+              <%= link_to "My Favorites", favorites_path , class: "nav-link" %>
             </li>
             <li class="nav-item">
               <%= link_to current_user.email, edit_user_registration_path, class: "nav-link" %>

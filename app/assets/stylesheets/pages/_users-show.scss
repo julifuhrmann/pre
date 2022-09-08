@@ -16,6 +16,7 @@ a {
 }
 
 .profile-pic {
+  object-fit: cover;
   width: 100vw;
   left: 0;
   top: 0;
@@ -64,6 +65,7 @@ a {
 
 .profile-div {
   position: absolute;
+  margin-top: -76px;
 }
 
 .herz-button{
