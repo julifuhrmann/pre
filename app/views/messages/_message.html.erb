@@ -1,21 +1,29 @@
 <% if message.user == current_user %>
-  <div class="asker-message">
-    <div class="message-<%= message.id %>">
-      <p><%= message.message %></p>
-      <small>
+  <div class="d-flex justify-content-end mt-2">
+    <div class="asker-message">
+      <div class="message-<%= message.id %>">
+        <p><%= message.message %></p>
+        <div style="
+                  display: inline-flex;
+                  align-items: baseline;">
         <strong><%= message.user.username %></strong>
-      <p> <%= message.created_at.strftime("%l:%M %p") %> </p>
-      </small>
+        <i> <%= message.created_at.strftime("%l:%M %p") %> </i>
+        </div>
+      </div>
     </div>
   </div>
 <% else %>
-  <div class="answerer-message">
-    <div class="message-<%= message.id %>">
-      <p><%= message.message %></p>
-      <small>
-      <strong><%= message.user.username %></strong>
-      <p> <%= message.created_at.strftime("%l:%M %p") %> </p>
-      </small>
+  <div class="d-flex justify-content-start">
+    <div class="answerer-message w-50 p-2 mt-2">
+      <div class="message-<%= message.id %>">
+        <p><%= message.message %></p>
+        <div style="
+                  display: inline-flex;
+                  align-items: baseline;">
+        <strong><%= message.user.username %></strong>
+        <i> <%= message.created_at.strftime("%l:%M %p") %> </i>
+        </div>
+      </div>
     </div>
   </div>
 <% end %>
