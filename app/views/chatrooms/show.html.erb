@@ -10,6 +10,7 @@
       </h1>
     </div>
 
+
   <div class="messages-container">
     <% @chatroom.messages.each do |message| %>
       <div class="message-row <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>"
@@ -20,6 +21,7 @@
       </div>
     <% end %>
   </div>
+
 
     <div class="type-container">
       <%= simple_form_for [@chatroom, @message],

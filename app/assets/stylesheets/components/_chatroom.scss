@@ -9,7 +9,7 @@
 
   h1 {
     margin-bottom: 0;
-    padding: 1rem;
+    padding: 16px;
   }
 
   .input-chat {
@@ -23,9 +23,11 @@
   }
 
   .messages {
-    height: 504;
     overflow: scroll;
     padding: 16px;
+    margin-top: 30px;
+    display: grid;
+
 
     #message-text {
       padding-right: 10px;
@@ -88,11 +90,13 @@
   border: 1px solid #888888;
   box-shadow: 2px, 2px, 4px rgba(10,10,10,.2);
   border-radius: 4px;
+
 }
 
 #blue-margin {
   margin-top: -84px;
 }
+
 
 .btn-send {
   color: #E94560;
@@ -119,3 +123,4 @@
     margin-bottom: 28px;
   }
 }
+
