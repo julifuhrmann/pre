@@ -60,6 +60,7 @@ body, html {
   width: 390px;
   object-fit: cover;
   filter: drop-shadow(2px 2px 4px rgba(10, 10, 10, 0.2));
+
   background: #16213E;
 
   h1, p {
@@ -79,6 +80,9 @@ body, html {
 
 .fav-page {
   display: flex;
+
+  flex-wrap: wrap;
+
   width: 390px;
 }
 

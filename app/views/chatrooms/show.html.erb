@@ -2,7 +2,7 @@
     data-controller="chatroom-subscription"
     data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id if @chatroom.presence %>"
 >
-  <div class="blue-space" id="blue-margin">
+  <div class="blue-header" id="blue-margin">
     <div class="avatar username">
       <h1>
           <%= cl_image_tag @answerer.avatar.key, height: 50, width: 50, crop: :fill, class: "avatar-bordered" %>
@@ -10,25 +10,34 @@
       </h1>
     </div>
 
-    <div id="messages-container">
-      <div class="messages" data-chatroom-subscription-target="messages">
-        <% @chatroom.messages.each do |message| %>
-            <%= render "messages/message", message: message %>
-        <% end %>
+
+  <div class="messages-container">
+    <% @chatroom.messages.each do |message| %>
+      <div class="message-row <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>"
+          data-chatroom-subscription-target="messages">
+        <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+          <%= render "messages/message", message: message %>
+        </div>
       </div>
-    </div>
-    <div class="type-container">
-    <%= simple_form_for [@chatroom, @message],
-      html: {data: {action: "turbo:submit-end->chatroom-subscription#resetForm"},
-      class: "message-box d-flex"} do |f|
-    %>
-      <%= f.input :message,
-        label: false,
-        placeholder: "Message #{@answerer.username}",
-        wrapper_html: {class: "flex-grow-1"}
-      %>
-      <%= f.submit "Send", class: "btn btn-primary mb-3" %>
     <% end %>
+  </div>
+
+
+    <div class="type-container">
+      <%= simple_form_for [@chatroom, @message],
+        html: {data: {action: "turbo:submit-end->chatroom-subscription#resetForm"},
+        class: "message-box d-flex justify-space-between align-items-center"} do |f|
+      %>
+        <%= f.input :message,
+          label: false,
+          placeholder: "Message #{@answerer.username}",
+          wrapper_html: {class: "flex-grow-1"},
+          input_html: {class: "input-chat pt-5"}
+        %>
+            <button type="submit" class="btn-send">
+              <i class="fa-regular fa-paper-plane"></i>
+            </button>
+        <% end %>
     </div>
   </div>
 </div>
