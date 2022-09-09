@@ -19,13 +19,24 @@
   }
 
   .input-chat:focus {
-    outline:none;
+    outline: none !important;
+  }
+
+  .form-control {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .form-control:focus {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
   }
 
   .messages {
     overflow: scroll;
     padding: 16px;
-    margin-top: 30px;
     display: grid;
 
 
@@ -46,29 +57,7 @@
     }
   }
 
-  .asker-message {
-    background: #E94560;
-    box-shadow: 2px, 2px, 4px rgba(10,10,10,.2);
-    border-radius: 20px 0px 20px 20px;
-    text-align: right;
-    justify-content: center;
-    color: white;
-    padding-right: 10px;
-    padding-left: 10px;
-    padding-bottom: 10px;
-  }
 
-  .answerer-message {
-    background: #16213E;
-    box-shadow: 2px, 2px, 4px rgba(10,10,10,.2);
-    border-radius: 0px 20px 20px 20px;
-    text-align: left;
-    justify-content: center;
-    color: white;
-    padding-right: 10px;
-    padding-left: 10px;
-    padding-bottom: 10px;
-  }
 }
 
 .message-box {
@@ -79,7 +68,7 @@
   padding: 13px 169px 13px 13px;
   gap: 10px;
 
-  position: absolute;
+  position: sticky;
   width: 354px;
   height: 50px;
   left: 18px;
@@ -123,4 +112,3 @@
     margin-bottom: 28px;
   }
 }
-

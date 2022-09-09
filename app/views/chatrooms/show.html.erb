@@ -1,6 +1,7 @@
 <div class="container-iphone chatroom"
     data-controller="chatroom-subscription"
     data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id if @chatroom.presence %>"
+    data-chatroom-subscription-current-user-id-value="<%= current_user.id %>"
 >
   <div class="blue-header" id="blue-margin">
     <div class="avatar username">
@@ -9,12 +10,13 @@
           <%= @answerer.username %>
       </h1>
     </div>
+  </div>
 
 
-  <div class="messages-container">
+
+  <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
-      <div class="message-row <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>"
-          data-chatroom-subscription-target="messages">
+      <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
         <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
           <%= render "messages/message", message: message %>
         </div>
@@ -23,7 +25,7 @@
   </div>
 
 
-    <div class="type-container">
+    <div class="type-container w-100" style="background-color: white;">
       <%= simple_form_for [@chatroom, @message],
         html: {data: {action: "turbo:submit-end->chatroom-subscription#resetForm"},
         class: "message-box d-flex justify-space-between align-items-center"} do |f|
@@ -34,10 +36,9 @@
           wrapper_html: {class: "flex-grow-1"},
           input_html: {class: "input-chat pt-5"}
         %>
-            <button type="submit" class="btn-send">
-              <i class="fa-regular fa-paper-plane"></i>
-            </button>
-        <% end %>
+        <button type="submit" class="btn-send">
+          <i class="fa-regular fa-paper-plane"></i>
+        </button>
+      <% end %>
     </div>
-  </div>
 </div>

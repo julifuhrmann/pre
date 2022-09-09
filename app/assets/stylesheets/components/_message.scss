@@ -8,16 +8,33 @@
 
 // To style the message itself
 .sender-style, .receiver-style {
-  width: 70%;
+  width: fit-content;
   max-width: 400px;
   border-radius: 4px;
   min-height: 50px;
   margin-top: 20px;
+  box-shadow: 2px, 2px, 4px rgba(10,10,10,.2);
+  border-radius: 20px 0px 20px 20px;
+  justify-content: center;
+  color: white;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.sender-style {
+  background: #E94560;
+  text-align: right;
+
+}
+
+.receiver-style {
+  background: #16213E;
+  text-align: left;
 }
 
 .messages-container {
-  width: 390px;
+  width: 100%;
   height: 520px;
   overflow: scroll;
-  margin-top: -29px;
 }
