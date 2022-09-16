@@ -15,5 +15,5 @@ Some highlights of our learning during the project include:
 👾 Heroku;
 🚂 Rails 7;
 🛠 JavaScript ES6 (with Turbo);
-💬 Chatrooms (implemented with websocket based on Rails action cable | Frontend: JavaScript & Stimulus);
+💬 Chatrooms (implemented with WebSocket based on Rails action cable | Frontend: JavaScript & Stimulus);
 💌 Join requests (Frontend: JavaScript, Turbo & Stimulus)
