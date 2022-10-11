@@ -30,7 +30,7 @@ berlin = [
   "drinks > tickets",
   "Friday Drinks"
 ]
-
+ 
 people = [
   "ElonMusk",
   "Sebi",
